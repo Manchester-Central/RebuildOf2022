@@ -4,15 +4,28 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 public class RobotContainer {
+  CommandXboxController m_driverController = new CommandXboxController(0); 
   public RobotContainer() {
     configureBindings();
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+  m_driverController.a().onTrue(new InstantCommand(() -> System.out.println("its luis mm")));
+  m_driverController.b().onTrue(new InstantCommand(() -> System.out.println("its chichi!")));
+  m_driverController.y().onTrue(new InstantCommand(() -> System.out.println("its yacine")));
+  m_driverController.x().onTrue(new InstantCommand(() -> System.out.println("its austin!!")));
+ m_driverController.leftBumper().and(m_driverController.a()).onTrue(new InstantCommand(() -> System.out.println("its not luis")));
+  // if right trigger AND a held say its not luis!!!!    
+  
+
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");

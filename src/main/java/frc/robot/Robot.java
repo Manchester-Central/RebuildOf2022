@@ -16,11 +16,17 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
+    System.out.println("Hello World.");
   }
 
+  int number = 0;
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
+    number = number + 1;
+    if (number == 1000) {
+      System.out.println("This has been ran 1000 times! :)");
+    };
   }
 
   @Override
