@@ -16,7 +16,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
-    System.out.println("Hello World.");
+    System.out.println("ME WANT CHOCCY MILK!");
   }
 
   int number = 0;
@@ -26,7 +26,14 @@ public class Robot extends TimedRobot {
     number = number + 1;
     if (number == 1000) {
       System.out.println("This has been ran 1000 times! :)");
+
     };
+    var joystick = m_robotContainer.m_Testjoystick;
+    joystick = 5; 
+    if (joystick.getRawButtonPressed(1)) {
+      System.out.println();
+
+    }
   }
 
   @Override
